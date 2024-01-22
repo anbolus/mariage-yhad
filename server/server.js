@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const port = 5000;
+const db = require('./db');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../public/views'));
