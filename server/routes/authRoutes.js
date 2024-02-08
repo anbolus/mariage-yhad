@@ -23,33 +23,37 @@ const authenticateToken = (req, res, next) => {
         });
 };
 
-//middleware d'authentification pour les routes /admin
-//authRouter.use('/admin', authenticateToken);
-
-authRouter.get('/admin/dashboard', authenticateToken, (req, res) => {
+/* authRouter.get('/admin/dashboard', authenticateToken, (req, res) => {
     res.json({ message: 'Protected route', user: req.user });
 });
 
-//connexion 
+//middleware d'authentification pour les routes /admin
+authRouter.use('/admin', authenticateToken); */
+
 authRouter.post('/admin/login', async (req, res) => {
     const { username, password } = req.body;
 
+    if (!username || !password) {
+        res.status(400).json({ message: 'Please enter a username and password' });
+        return;
+    }
     try {
         const results = await db.query('SELECT * FROM users WHERE username = ?', [username]);
+        console.log('resultat de la requete :', results);
+        
+        if (results.length > 0 && results[0].length > 0) {
+            const user = results[0][0];
 
-        if (results.length > 0) {
-            const user = results[0];
-
-            //vérification du mdp avec bcrypt
-            if (user.password && user.password.trim() !== '') {
+            if (user.password) {
                 const passwordMatch = await bcrypt.compare(password, user.password);
-
+                
                 if (passwordMatch) {
-                    //génération du token
-                    const token = jwtHandler.generateToken(username, { expiresIn: '1h' });
-                    res.json({ token });
+                    res.json({
+                        username: user.username,
+                        token: jwtHandler.generateToken(username, { expiresIn: '1h' })
+                    });
                 } else {
-                    res.status(401).json({ message: 'Invalid password' });
+                    res.status(401).json({ message: 'Invalid credentials' });
                 }
             } else {
                 res.status(401).json({ message: 'Invalid credentials' });
@@ -58,9 +62,9 @@ authRouter.post('/admin/login', async (req, res) => {
             res.status(401).json({ message: 'Invalid credentials' });
         }
     } catch (error) {
-        console.error('Database query error:', error);
         res.status(500).json({ message: 'Internal Server Error' });
     }
+
 });
 
 //inscription
@@ -72,7 +76,6 @@ authRouter.post('/admin/register', async (req, res) => {
         await db.query(`INSERT INTO users (username, password) VALUES (?, ?)`, [username, hashedPassword]);
         res.json({ message: 'Registration successful' })
     } catch (error) {
-        console.error('Error during registration :' + error);
         res.status(500).json({ message: 'Internal Server Error' });
     }
 })

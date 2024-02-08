@@ -20,4 +20,21 @@ function verifyToken(token) {
     });
 }
 
-module.exports = {generateToken, verifyToken};
+const requireAuth = (req, res, next) => {
+  const token = req.headers.authorization;
+  
+  if(token) {
+    jwt.verify(token, tokenSecret, (err, decoded) => {
+      if(err) {
+        res.status(401).json({ message: 'Invalid token' });
+      } else {
+        req.user = decoded;
+        next();
+      }
+    });
+  } else {
+    res.status(401).json({ message: 'Authorization header missing' });
+  }
+}
+
+module.exports = {generateToken, verifyToken, requireAuth};
