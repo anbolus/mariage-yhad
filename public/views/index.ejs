@@ -19,6 +19,33 @@
     <h1>
         <%= message %>
     </h1>
+
+    <div class="countdown-container">
+        <h1 id="countdown"></h1>
+    </div>
 </body>
 
+<script>
+    const countdownTemplate = "%d days, %h hours, %m minutes, %s seconds";
+    const endDate = new Date('2024-12-31T00:00:00').getTime(); // TODO: maj date mariage
+
+    //mise a jour du compteur 
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endDate - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const countdown = document.getElementById('countdown');
+        countdown.innerHTML = countdownTemplate
+        .replace('%d', days)
+        .replace('%h', hours)
+        .replace('%m', minutes)
+        .replace('%s', seconds);
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
 </html>
