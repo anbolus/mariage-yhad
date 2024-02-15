@@ -4,22 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="/styles/home.css">
+
     <title>Document</title>
 </head>
 
 <body>
-    <nav class="navbar">
-        <ol>
-            <li class="nav"><a href="#">Home</a></li>
-            <li class="nav"><a href="#">Programme</a></li>
-            <li class="nav"><a href="/admin/login">Admin</a></li>
-        </ol>
-    </nav>
     <h1>
-        <%= message %>
+        Sandra & Jérémy
     </h1>
+    <section style="color: #fff;">
+        <nav class="navbar">
+            <ul>
+                <li class="nav"><a href="#">Home</a></li>
+                <li class="nav"><a href="#">Programme</a></li>
+                <li class="nav"><a href="/plan-acces">Plan d'accès</a></li>
+                <li class="nav"><a href="/admin/login">Admin</a></li>
+            </ul>
+        </nav>
+    </section>
 
+    <h2>Sandra et Jérémy se marient dans :</h2>
     <div class="countdown-container">
         <h1 id="countdown"></h1>
     </div>
@@ -40,12 +45,13 @@
 
         const countdown = document.getElementById('countdown');
         countdown.innerHTML = countdownTemplate
-        .replace('%d', days)
-        .replace('%h', hours)
-        .replace('%m', minutes)
-        .replace('%s', seconds);
+            .replace('%d', days)
+            .replace('%h', hours)
+            .replace('%m', minutes)
+            .replace('%s', seconds);
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
 </script>
+
 </html>
