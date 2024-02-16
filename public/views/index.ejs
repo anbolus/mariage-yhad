@@ -4,21 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
     <nav class="navbar">
-        <ol>
+        <ul>
             <li class="nav"><a href="#">Home</a></li>
             <li class="nav"><a href="#">Programme</a></li>
             <li class="nav"><a href="/admin/login">Admin</a></li>
-        </ol>
+        </ul>
     </nav>
-    <h1>
-        <%= message %>
-    </h1>
+    <h2>Sandra et Jérémy se marient dans :</h2>
+    <div class="countdown-container">
+        <h1 id="countdown"></h1>
+    </div>
 </body>
+<script>
+    const countdownTemplate = "%mo mois %d jours, %h heures, %m minutes, %s secondes";
+    const endDate = new Date('2024-12-31T00:00:00').getTime();
+
+    //mise a jour du compteur 
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endDate - now;
+
+        const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
+        const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const countdown = document.getElementById('countdown');
+        countdown.innerHTML = countdownTemplate
+            .replace('%mo', months)
+            .replace('%d', days)
+            .replace('%h', hours)
+            .replace('%m', minutes)
+            .replace('%s', seconds);
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
+
+
+
 
 </html>
