@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+
     <title>Document</title>
 </head>
 
@@ -60,7 +61,7 @@
     function updateCountdown() {
         const now = new Date().getTime();
         const distance = endDate - now;
-
+        
         const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
         const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -70,6 +71,7 @@
         const countdown = document.getElementById('countdown');
         countdown.innerHTML = countdownTemplate
             .replace('%mo', months)
+
             .replace('%d', days)
             .replace('%h', hours)
             .replace('%m', minutes)
@@ -78,8 +80,4 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 </script>
-
-
-
-
 </html>
