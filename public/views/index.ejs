@@ -9,32 +9,52 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
     <div class="container">
-        <h1 class="great-vibes-regular">Sandra & Jérémy</h1>
-        <nav class="navbar">
-            <ul>
-                <li class="nav"><a href="#">Accueil</a></li>
-                <li class="nav"><a href="#">Programme</a></li>
-                <li class="nav"><a href="/plan-acces">Plan d'accès</a></li>
-                <li class="nav"><a href="#">Hébergements</a></li>
-                <li class="nav"><a href="#">A propos</a></li>
-                <li class="nav"><a href="#">Réponse</a></li>
-                <li class="nav"><a href="#">Message</a></li>
-            </ul>
-        </nav>
-        <h2>Sandra et Jérémy se marient dans :</h2>
-        <div class="countdown-container">
+        <div class="container2">
+            <h1 class="great-vibes-regular">Sandra & Jérémy</h1>
+            <nav class="navbar">
+                <ul>
+                    <li class="nav"><a href="#">Accueil</a></li>
+                    <li class="nav"><a href="#">Programme</a></li>
+                    <li class="nav"><a href="/plan-acces">Plan d'accès</a></li>
+                    <li class="nav"><a href="#">Hébergements</a></li>
+                    <li class="nav"><a href="#">Cadeau de mariage</a></li>
+                    <li class="nav"><a href="#">Réponse</a></li>
+                    <li class="nav"><a href="#">Message</a></li>
+                </ul>
+            </nav>
+        </div>
+        <h2 class="baskervville-regular">Sandra et Jérémy se marient dans :</h2>
+        <div class="countdown-container baskervville-regular">
             <h1 id="countdown"></h1>
         </div>
+        <div class="homepageText baskervville-regular">
+            <p>Sandra et Jérémy ont décidés de s'unir le <b>Samedi 5 octobre 2024</b> et vous êtes invité à les accompagner
+                pour le plus beau des voyages !</p><br>
+            <p>Ce site est entièrement dédié à leur mariage.</p><br>
+            <p>Vous pourrez y trouver des informations pratiques comme le programme de la journée, les hébergements
+                proches proposés, l'accès au lieu de réception, la possibilité de répondre en ligne à l'invitation et
+                vous pouvez également laisser un message aux mariés.</p><br>
+            <p>Si vous rencontrez des difficultés ou si vous avez des questions, n'hésitez pas à contacter Laetitia leur
+                wedding planner dans la section <a href="#">Message</a></p>
+        </div>
+    </div>
+    <div class="container-footer">
+        <footer>
+        </footer>
     </div>
 </body>
+
 <script>
     const countdownTemplate = "%mo mois %d jours, %h heures, %m minutes, %s secondes";
-    const endDate = new Date('2024-12-31T00:00:00').getTime();
+    const endDate = new Date('2024-10-05T00:00:00').getTime();
 
     //mise a jour du compteur 
     function updateCountdown() {
