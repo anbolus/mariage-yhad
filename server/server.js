@@ -36,9 +36,6 @@ app.get('/admin/login', (req, res) => {
     res.render('admin-login');
 });
 
-app.get('/plan-acces', (req, res) => {
-    res.render('plan-acces', { message: 'Plan d\'acces' });
-    })
 app.get('/admin/register', (req, res) => {
     res.render('admin-register');
 })
