@@ -28,6 +28,11 @@ app.use(cors({
     res.type('text/css');
 
 }); */
+
+app.get('/programme', (req, res) => {
+    res.render('programme');
+});
+
 app.get('/', (req, res) => {
     res.render('index', { message: 'Hello from the server!' });
 });

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/home.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/slider.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+    <title>Programme</title>
+</head>
+
+<body>
+    <div class="container baskervville-regular">
+        <div class=" container2">
+            <h1 class="great-vibes-regular">Sandra & Jérémy</h1>
+            <nav class="navbar">
+                <ul>
+                    <li class="nav"><a href="/">Accueil</a></li>
+                    <li class="nav"><a href="/programme">Programme</a></li>
+                    <li class="nav"><a href="/plan-acces">Plan d'accès</a></li>
+                    <li class="nav"><a href="#">Hébergements</a></li>
+                    <li class="nav"><a href="#">Cadeau de mariage</a></li>
+                    <li class="nav"><a href="#">Réponse</a></li>
+                    <li class="nav"><a href="#">Message</a></li>
+                </ul>
+            </nav>
+        </div>
+        <h1>Programme</h1>
+        <h2>5 octobre 2024</h2>
+        <div class="slider-wrapper">
+            <div class="slider">
+                <div id="slide-1" class="slide">
+                    <p><b>15h30</b></p>
+                    <p>Départ pour le Château de Granoupiac</p>
+                    <p>Saint Pierre de Granoupiac, 34725 Saint André de Sangonis</p>
+                </div>
+                <div id="slide-2" class="slide">
+                    <p><b>17h30</b></p>
+                    <p>Cérémonie Laïque</p>
+                </div>
+                <div id="slide-3" class="slide">
+                    <p><b>18h00</b></p>
+                    <p>Cocktail apéritif</p>
+                </div>
+                <div id="slide-4" class="slide">
+                    <p><b>21h00</b></p>
+                    <p>Repas</p>
+                </div>
+                <div id="slide-5" class="slide">
+                    <p><b>00h00</b></p>
+                    <p>Ouverture du bal</p>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <a href="#slide-1"></a>
+                <a href="#slide-2"></a>
+                <a href="#slide-3"></a>
+                <a href="#slide-4"></a>
+                <a href="#slide-5"></a>
+            </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const slider = document.querySelector('.slider');
+                const navLinks = document.querySelectorAll('.slider-nav a');
+
+                navLinks.forEach(function (link) {
+                    link.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        const targetSlideId = this.getAttribute('href');
+                        const targetSlide = document.querySelector(targetSlideId);
+                        targetSlide.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    });
+                });
+            });
+        </script>
+    </div>
+</body>
+
+</html>
