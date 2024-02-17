@@ -1,0 +1,14 @@
+body {
+  background-image: url(../images/header.png);
+  /* La taille de l'image est ajustée pour couvrir toute la zone de fond */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #FCF8ED;
+}
+
+.container-footer {
+  background-image: url(../images/footer.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Couleur du texte */
+}

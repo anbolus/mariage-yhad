@@ -4,51 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles/home.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
 
     <title>Document</title>
 </head>
 
 <body>
-    <h1>
-        Sandra & Jérémy
-    </h1>
-    <section style="color: #fff;">
-        <nav class="navbar">
-            <ul>
-                <li class="nav"><a href="#">Accueil</a></li>
-                <li class="nav"><a href="#">Programme</a></li>
-                <li class="nav"><a href="/plan-acces">Plan d'accès</a></li>
-                <li class="nav"><a href="#">Hébergements</a></li>
-                <li class="nav"><a href="#">A propos</a></li>
-                <li class="nav"><a href="#">Réponse</a></li>
-                <li class="nav"><a href="#">Message</a></li>
-                <li class="nav"><a href="/admin/login">Admin</a></li>
-            </ul>
-        </nav>
-    </section>
-
-    <h2>Sandra et Jérémy se marient dans :</h2>
-    <div class="countdown-container">
-        <h1 id="countdown"></h1>
+    <div class="container">
+        <div class="container2">
+            <h1 class="great-vibes-regular">Sandra & Jérémy</h1>
+            <nav class="navbar">
+                <ul>
+                    <li class="nav"><a href="#">Accueil</a></li>
+                    <li class="nav"><a href="#">Programme</a></li>
+                    <li class="nav"><a href="/plan-acces">Plan d'accès</a></li>
+                    <li class="nav"><a href="#">Hébergements</a></li>
+                    <li class="nav"><a href="#">Cadeau de mariage</a></li>
+                    <li class="nav"><a href="#">Réponse</a></li>
+                    <li class="nav"><a href="#">Message</a></li>
+                </ul>
+            </nav>
+        </div>
+        <h2 class="baskervville-regular">Sandra et Jérémy se marient dans :</h2>
+        <div class="countdown-container baskervville-regular">
+            <h1 id="countdown"></h1>
+        </div>
+        <div class="homepageText baskervville-regular">
+            <p>Sandra et Jérémy ont décidés de s'unir le <b>Samedi 5 octobre 2024</b> et vous êtes invités à les accompagner
+                pour le plus beau des voyages !</p><br>
+            <p>Ce site est entièrement dédié à leur mariage.</p><br>
+            <p>Vous pourrez y trouver des informations pratiques comme le programme de la journée, les hébergements
+                proches proposés, l'accès au lieu de réception, la possibilité de répondre en ligne à l'invitation et
+                vous pouvez également laisser un message aux mariés.</p><br>
+            <p>Si vous rencontrez des difficultés ou si vous avez des questions, n'hésitez pas à contacter Laetitia leur
+                wedding planner dans la section <a href="#">Message</a></p>
+        </div>
+    </div>
+    <div class="container-footer">
+        <footer>
+        </footer>
     </div>
 </body>
 
 <script>
-    const countdownTemplate = "%d days, %h hours, %m minutes, %s seconds";
-    const endDate = new Date('2024-12-31T00:00:00').getTime(); // TODO: maj date mariage
+    const countdownTemplate = "%mo mois %d jours, %h heures, %m minutes, %s secondes";
+    const endDate = new Date('2024-10-05T00:00:00').getTime();
 
     //mise a jour du compteur 
     function updateCountdown() {
         const now = new Date().getTime();
         const distance = endDate - now;
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        
+        const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
+        const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         const countdown = document.getElementById('countdown');
         countdown.innerHTML = countdownTemplate
+            .replace('%mo', months)
+
             .replace('%d', days)
             .replace('%h', hours)
             .replace('%m', minutes)
@@ -57,5 +80,4 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 </script>
-
 </html>
