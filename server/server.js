@@ -8,6 +8,7 @@ const db = require('./db');
 const authRoutes = require('./routes/authRoutes.js');
 const tokenHandler = require('./middleware/tokenHandler.js');
 const authRouter = require('./routes/authRoutes.js');
+const sendEmail = require('./middleware/emailSender.js');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../public/views'));
@@ -31,6 +32,17 @@ app.use(cors({
 
 app.get('/programme', (req, res) => {
     res.render('programme');
+});
+
+app.get('/contact/', (req, res) => {
+    res.render('contact');
+});
+
+app.post('/send-email', (req, res) => {
+    const { from, subject, text } = req.body;
+    const to = process.env.EMAIL_CONTACT;
+    sendEmail(from, to, subject, text);
+    res.send('Email envoyé avec succès à ' + from + text);
 });
 
 app.get('/', (req, res) => {
