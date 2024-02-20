@@ -1,0 +1,47 @@
+.card {
+    background-color: #fdfbf6;
+    border-radius: 10px;
+    box-shadow: 0 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px auto;
+    width: 400px;
+}
+
+.card h1 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card, .map {
+    flex: 0 1 45%;
+    margin-bottom: 20px;
+    height: 450px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .card,
+    .map {
+        flex: 0 1 100%;
+        height: auto;
+    }
+}

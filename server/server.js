@@ -38,6 +38,10 @@ app.get('/contact/', (req, res) => {
     res.render('contact');
 });
 
+app.get('/hebergements', (req, res) => {
+    res.render('hebergements');
+})
+
 app.post('/send-email', (req, res) => {
     const { from, subject, text } = req.body;
     const to = process.env.EMAIL_CONTACT;
