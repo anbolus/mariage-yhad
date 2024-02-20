@@ -42,6 +42,10 @@ app.get('/hebergements', (req, res) => {
     res.render('hebergements');
 })
 
+app.get('/plan-acces', (req, res) => {
+    res.render('plan-acces');
+})
+
 app.post('/send-email', (req, res) => {
     const { from, subject, text } = req.body;
     const to = process.env.EMAIL_CONTACT;

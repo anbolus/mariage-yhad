@@ -1,0 +1,38 @@
+body, html {
+    margin: 0;
+    padding: 0;
+     /* Cacher tout débordement */
+}
+
+.sides {
+    display: flex;
+}
+
+.side-1, .side-2 {
+    flex: 0 0 50%;
+}
+
+
+
+.side-1 h2, 
+.side-2 h2 {
+    margin: 0;
+}
+
+.side-1 iframe
+.side-2 iframe {
+    width: 100%;
+}
+
+.side-2 {
+    margin-right: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .side-1,
+    .side-2 {
+        flex: 0 0 100%; /* Une seule colonne pour les écrans plus petits */
+        margin-right: 0;
+        margin-bottom: 20px; /* Espacement entre les éléments */
+    }
+}
