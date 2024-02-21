@@ -42,6 +42,20 @@ app.get('/hebergements', (req, res) => {
     res.render('hebergements');
 })
 
+app.get('/api/google-maps', async (req, res) => {
+    try{
+        const response = await axios(`https://www.google.com/maps/embed/v1/search?q=7%20Rue%20de%20la%20Lucque%2C%20Saint-Andr%C3%A9-de-Sangonis%2C%20France&`, {
+            params: {
+                key: process.env.GOOGLE_MAPS_API_KEY
+            }
+        });
+        res.json(response.data);
+    } catch (error) {
+        console.error('Erreur lors de la requete a l API Google Maps:', error);
+        res.status(500).json({ message: 'Erreur lors de la requete api Google Maps' });
+    }
+})
+
 app.post('/send-email', (req, res) => {
     const { from, subject, text } = req.body;
     const to = process.env.EMAIL_CONTACT;
