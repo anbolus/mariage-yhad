@@ -20,19 +20,21 @@
 
 <body>
     <div class="container">
-        <h1 class="great-vibes-regular">Sandra & Jérémy</h1>
-        <nav class="navbar">
-            <ul>
-                <li class="nav"><a href="/">Accueil</a></li>
-                <li class="nav"><a href="/programme">Programme</a></li>
-                <li class="nav"><a href="/plan-acces">Plan d'accès</a></li>
-                <li class="nav"><a href="/hebergements">Hébergements</a></li>
-                <li class="nav"><a href="#">Cadeau de mariage</a></li>
-                <li class="nav"><a href="#">Réponse</a></li>
-                <li class="nav"><a href="/contact">Message</a></li>
-            </ul>
-        </nav>
-
+        <div class="container2">
+            <h1 class="great-vibes-regular">Sandra & Jérémy</h1>
+            <nav class="navbar">
+                <ul>
+                    <li class="nav"><a href="/">Accueil</a></li>
+                    <li class="nav"><a href="/programme">Programme</a></li>
+                    <li class="nav"><a href="/plan-acces">Plan d'accès</a></li>
+                    <li class="nav"><a href="/hebergements">Hébergements</a></li>
+                    <li class="nav"><a href="#">Cadeau de mariage</a></li>
+                    <li class="nav"><a href="#">Réponse</a></li>
+                    <li class="nav"><a href="/contact">Message</a></li>
+                </ul>
+            </nav>
+        </div>
+        <h2 class="baskervville-regular">Hébergements</h2>
         <div class="card baskervville-regular">
             <img src="https://static.wixstatic.com/media/352029_c4119b9450e844a7b67c753c2f052c2a~mv2.jpg/v1/fill/w_316,h_212,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/20210108_093803.jpg"
                 alt="img-la-cle">
@@ -44,11 +46,18 @@
             <p>A partir de 61€</p>
             <p><a href="https://www.hotelbrasserielacle.com/">Lien Internet</a></p>
         </div>
-        <div class="map">
-            <iframe width="600" height="450" style="border:0" Loading="lazy" allowfullscreen
-                src="/api/google-maps"></iframe>
-        </div>
+        <div id="mapContainer" class="map"></div>
     </div>
+    
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        axios.get('/api/google-maps')
+            .then(function (response) {
+                document.getElementById('mapContainer').innerHTML = response.data;
+            })
+            .catch(function (error) {
+                console.error('Erreur lors de la récupération de la carte Google Maps:', error);
+            });
+    </script>
 </html>
