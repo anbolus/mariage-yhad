@@ -56,6 +56,10 @@ app.get('/api/google-maps', async (req, res) => {
     }
 })
 
+app.get('/reponse', (req, res) => {
+    res.render('reponse');
+});
+
 app.post('/send-email', (req, res) => {
     const { from, subject, text } = req.body;
     const to = process.env.EMAIL_CONTACT;
