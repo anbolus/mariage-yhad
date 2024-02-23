@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+    <title>Contact</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container2">
+            <h1 class="great-vibes-regular">Sandra & Jérémy</h1>
+            <nav class="navbar">
+                <ul>
+                    <li class="nav"><a href="/">Accueil</a></li>
+                    <li class="nav"><a href="/programme">Programme</a></li>
+                    <li class="nav"><a href="/plan-acces">Plan d'accès</a></li>
+                    <li class="nav"><a href="/hebergements">Hébergements</a></li>
+                    <li class="nav"><a href="#">Cadeau de mariage</a></li>
+                    <li class="nav"><a href="#">Réponse</a></li>
+                    <li class="nav"><a href="/contact">Message</a></li>
+                </ul>
+            </nav>
+        </div>
+        <h1 class="baskervville-regular">Contact</h1>
+        <form action="/send-email" method="post">
+            <label for="from">Votre adresse email :</label>
+            <input type="email" id="from" name="from" required><br>
+            <label for="subject">Sujet :</label>
+            <input type="text" id="subject" name="subject" required><br>
+            <label for="text">Message :</label>
+            <textarea id="text" name="text" required></textarea><br>
+            <button type="submit">Envoyer</button>
+        </form>
+
+    </div>
+</body>
+
+</html>

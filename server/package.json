@@ -20,6 +20,7 @@
     "jsonwebtoken": "^9.0.2",
     "mapbox-gl": "^3.1.2",
     "mysql2": "^3.7.1",
+    "nodemailer": "^6.9.9",
     "nodemon": "^3.0.3"
   }
 }
