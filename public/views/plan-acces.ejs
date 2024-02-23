@@ -38,15 +38,28 @@
                 <h2>Mairie d'Olargues</h2>
                 <p>Rendez-vous les samedi 5 octobre à ??h??</p>
                 <p>34390 Pl. Alexandre Laissac, 34390 Olargues</p>
-                <iframe width="500" height="400" style="border:0" Loading="lazy" allowfullscreen
-                    src="https://www.google.com/maps/embed/v1/search?q=34390%20Pl.%20Alexandre%20Laissac%2C%2034390%20Olargues%2C%20France&key=AIzaSyB9yGLTrE0kfKPaCWfq-rOPGhg6TCUk5uA"></iframe>
+                <div class="mapContainer slide1"></div>
             </div>
+
             <div class="side-2 baskervville-regular">
-                <h2>Chatêau de Granoupiac</h2>
+                <h2>Château de Granoupiac</h2>
                 <p>Rendez-vous le samedi 5 octobre à 15h30</p>
-                <p>Saint-Pierre de Granoupiac 34725 Saint-André-de-Sangonis</p>
-                <iframe width="500" height="400" style="border:0" Loading="lazy" allowfullscreen
-                    src="https://www.google.com/maps/embed/v1/search?q=Saint-Pierre%20de%20Granoupiac%2C%2034725%20Saint-Andr%C3%A9-de-Sangonis%2C%20France&key=AIzaSyB9yGLTrE0kfKPaCWfq-rOPGhg6TCUk5uA"></iframe>
+                <p>Saint Pierre de Granoupiac, 34725 Saint-André-De-Sangonis</p>
+                <div class="mapContainer slide2"></div>
             </div>
         </div>
     </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+        axios.get('/api/google-maps')
+            .then(function (response) {
+                document.querySelector('.slide1').innerHTML = response.data.side1;
+                document.querySelector('.slide2').innerHTML = response.data.side2;
+            })
+            .catch(function (error) {
+                console.error('Erreur lors de la récupération des cartes Google Maps:', error);
+            });
+    </script>
+</div>
